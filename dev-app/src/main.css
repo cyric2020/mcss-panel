@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply bg-gray-700;
+}
+
+.popup{
+    @apply bg-gray-800 p-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg;
+    width: 25rem;
+    display: none;
+}
+
+.title{
+    @apply text-white text-2xl font-bold;
+}
+
+input{
+    @apply p-2 rounded-md text-black focus:outline-none w-full mt-4;
+}
+
+button{
+    @apply p-2 rounded-md text-white focus:outline-none mt-4;
+}
