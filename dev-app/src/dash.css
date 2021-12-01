@@ -17,17 +17,32 @@ body{
 }
 
 .container{
-    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex divide-x divide-gray-600;
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row md:divide-x divide-gray-600;
     width: 70vw;
-    height: 70vh
+    height: 70vh;
+}
+
+/* when on phone make container width 100% */
+@media (max-width: 768px) {
+    .container{
+        width: 100%;
+    }
+
+    .popup{
+        width: auto;
+        left: 1rem;
+        right: 1rem;
+        transform: translateY(-50%);
+        /* @apply mx-4; */
+    }
 }
 
 .navbar{
-    @apply p-4 w-3/12 h-full relative;
+    @apply p-4 w-full md:w-3/12 md:h-full relative;
 }
 
 .nav-content{
-    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-max;
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-max flex md:flex-col;
 }
 
 .content{
@@ -56,7 +71,7 @@ a{
 }
 
 .nav-text{
-    @apply my-auto px-4 text-lg font-semibold;
+    @apply my-auto px-4 text-lg font-semibold hidden md:block;
 }
 
 

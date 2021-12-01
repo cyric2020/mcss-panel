@@ -27,3 +27,13 @@ button{
 .small-button{
     @apply p-1 px-3 rounded-md text-white focus:outline-none hover:bg-gray-900;
 }
+
+@media (max-width: 768px) {
+    .popup{
+        width: auto;
+        left: 1rem;
+        right: 1rem;
+        transform: translateY(-50%);
+        /* @apply mx-4; */
+    }
+}
