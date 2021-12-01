@@ -23,3 +23,7 @@ input{
 button{
     @apply p-2 rounded-md text-white focus:outline-none mt-4;
 }
+
+.small-button{
+    @apply p-1 px-3 rounded-md text-white focus:outline-none hover:bg-gray-900;
+}

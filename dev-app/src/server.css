@@ -1,0 +1,7 @@
+.chatmode{
+    min-width: 10rem;
+}
+
+.console a{
+    @apply p-0 hover:bg-transparent w-max inline-block underline focus:outline-none;
+}

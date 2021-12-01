@@ -14,6 +14,9 @@ if (api_url == null) {
 }
 
 function requestUrl() {
+    document.getElementById('login_error').style.display = 'none';
+    document.getElementById('login').style.display = 'none';
+    
     var div = document.getElementById('request_url');
     div.style.display = 'block';
     document.getElementById('request_url_btn').addEventListener('click', function () {
@@ -52,6 +55,14 @@ function login(){
         success: function (data) {
             localStorage.setItem('token', data.access_token);
             window.location.href = 'dashboard.html';
+        },
+        error: function (data) {
+            document.getElementById('login_error').style.display = 'block';
         }
     });
 }
+
+document.getElementById('incorrect_api').addEventListener('click', function () {
+    localStorage.removeItem('api_url');
+    requestUrl();
+});

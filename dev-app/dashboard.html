@@ -7,14 +7,70 @@
     <title>Dashboard</title>
   </head>
   <body class="text-white">
-		<div class="navbar inline-block w-full">
-			<div class="inner-nav">
-				<a href="" class="float-left">Home</a>
+    <div class="container">
+      <div class="navbar">
+        <div class="nav-content">
+          <a href="">
+            <div class="icon bg-gradient-to-br from-red-600 to-red-700">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#fff"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </div>
+            <div class="nav-text">
+              Home
+            </div>
+          </a>
+          <a id="mcss_discord">
+            <div class="icon bg-gradient-to-br from-indigo-600 to-indigo-700">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+            </div>
+            <div class="nav-text">
+              MCSS Discord
+            </div>
+          </a>
+          <a href="">
+            <div class="icon bg-gradient-to-br from-blue-600 to-blue-700">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+            </div>
+            <div class="nav-text">
+              My Discord
+            </div>
+          </a>
+          <a id="logout">
+            <div class="icon bg-gradient-to-br from-pink-600 to-pink-700">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+            </div>
+            <div class="nav-text">
+              Logout
+            </div>
+          </a>
+        </div>
+      </div>
+  
+      <div class="content" id="servers">
+        <!-- <div class="server">
+          <div class="server-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 13H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM19 3H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+          </div>
 
-			<a href="" class="float-right">Logout</a>
-			</div>
-		</div>
+          <div class="server-info">
+            <div class="server-name-container">
+              <span class="server-name">Server Name</span>
+            </div>
+            <div class="server-indicator bg-green-600"></div>
+          </div>
+        </div> -->
+      </div>
+    </div>
 
+    <div id="discord_popup" class="absolute top-0 left-0 right-0 bottom-0 bg-gray-600 bg-opacity-50 hidden">
+      <div class="popup block">
+        <h1 class="title">WARNING</h1>
+        <h2>The MCSS discord server is not responsible for any issues with the panel and should only be contacted if needing assistance with issues related to the MCSS software itself.</h2>
+        <div class="flex">
+          <button class="bg-gray-500 hover:bg-gray-600 flex-grow flex-1 mr-2" id="discord_popup_close">Cancel</button>
+          <button class="bg-red-600 hover:bg-red-700 flex-grow flex-1 ml-2" id="discord_popup_confirm">Ok</button>
+        </div>
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script type="module" src="/src/dash.js"></script>

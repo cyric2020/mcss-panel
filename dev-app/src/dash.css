@@ -9,15 +9,29 @@ body{
 .popup{
     @apply bg-gray-800 p-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg;
     width: 25rem;
-    display: none;
+    /* display: none; */
 }
 
 .title{
     @apply text-white text-2xl font-bold;
 }
 
+.container{
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex divide-x divide-gray-600;
+    width: 70vw;
+    height: 70vh
+}
+
 .navbar{
-    @apply bg-gray-800 p-4 px-0;
+    @apply p-4 w-3/12 h-full relative;
+}
+
+.nav-content{
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-max;
+}
+
+.content{
+    @apply p-4 flex-grow;
 }
 
 .inner-nav{
@@ -34,5 +48,41 @@ button{
 }
 
 a{
-    @apply p-1 px-3 rounded-md text-white focus:outline-none hover:bg-gray-900;
+    @apply p-2 px-3 rounded-md text-white focus:outline-none hover:bg-gray-900 flex;
+}
+
+.icon{
+    @apply p-2 rounded-md text-white focus:outline-none w-auto;
+}
+
+.nav-text{
+    @apply my-auto px-4 text-lg font-semibold;
+}
+
+
+/* Server List Styling */
+
+.server{
+    @apply w-full p-4 bg-gray-600 rounded-lg flex relative mb-4 cursor-pointer;
+}
+
+.server-icon{
+    @apply p-3 bg-gray-500 w-max rounded-full;
+}
+
+.server-info{
+    @apply relative w-full;
+}
+
+.server-name{
+    @apply transform -translate-y-1/2 font-semibold text-xl pl-4;
+    margin-top: 50%;
+}
+
+.server-name-container{
+    @apply absolute top-1/2 transform -translate-y-1/2 mt-0 pb-1;
+}
+
+.server-indicator{
+    @apply absolute top-0 bottom-0 right-0 w-3 rounded-full;
 }
