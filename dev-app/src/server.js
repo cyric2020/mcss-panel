@@ -22,7 +22,7 @@ function newMessage(text, color){
 
     var prefix = document.createElement('span');
     prefix.className = 'console-prefix';
-    prefix.innerHTML = '> ';
+    prefix.innerHTML = '';
     div.appendChild(prefix);
 
     var message = document.createElement('span');
@@ -32,26 +32,32 @@ function newMessage(text, color){
             
             break;
         
-        case 'warning':
+        case 'WARN':
             message.classList.add('text-yellow-500');
             break;
         
-        case 'error':
+        case 'ERRO':
             message.classList.add('text-red-500');
             break;
     
         default:
             break;
     }
+
+    if(message.innerHTML.includes('[MCSS]')){
+        message.classList.add('text-green-600');
+    }
     div.appendChild(message);
+
+    console_element.scrollTop = console_element.scrollHeight + console_element.clientHeight;
 }
 
 function loadError(){
-    var message = ['-----[ Error ]-----', 'Because of the limitations of the MCSS API there is no way to view console. However you can still run commands using the input below.', 'For updates you can join the MCSS discord <a href="https://www.mcserversoft.com/discord">here</a>']
+    // var message = ['-----[ Error ]-----', 'Because of the limitations of the MCSS API there is no way to view console. However you can still run commands using the input below.', 'For updates you can join the MCSS discord <a href="https://www.mcserversoft.com/discord">here</a>']
 
-    for(var i=0; i<message.length; i++){
-        newMessage(message[i], 'error');
-    }
+    // for(var i=0; i<message.length; i++){
+    //     newMessage(message[i], 'error');
+    // }
 }
 
 loadError();
@@ -81,11 +87,11 @@ document.getElementById('console_input').addEventListener('keydown', function(e)
         this.value = '';
         console.log(command);
 
-        if(command.startsWith('say ')){
-            newMessage('[Server] ' + command.substring(4), 'default');
-        }else{
-            newMessage(command, 'default');
-        }
+        // if(command.startsWith('say ')){
+        //     newMessage('[Server] ' + command.substring(4), 'default');
+        // }else{
+        //     newMessage(command, command.substring(10, 14));
+        // }
     }
 });
 
@@ -149,6 +155,34 @@ function updateStatus(){
     });
 }
 
+var currentConsole = [];
+
+function updateConsole(){
+    $.ajax({
+        url: api_url + '/api/server/console',
+        type: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        data: JSON.stringify({
+            Guid: server_guild,
+            AmmountOfLines: 50,
+            Reversed: false
+        }),
+        dataType: 'JSON',
+        success: function(data){
+            console.log(data);
+            for(var i=0; i<data.length; i++){
+                if(currentConsole.includes(data[i])){
+                    continue;
+                }
+                currentConsole.push(data[i]);
+                newMessage(data[i], data[i].substring(10, 14));
+            }
+        }
+    });
+}
+
 function performServerAction(action){
     $.ajax({
         url: api_url + '/api/server/execute/action',
@@ -168,6 +202,8 @@ function performServerAction(action){
 }
 
 setInterval(updateStatus, 1000);
+
+setInterval(updateConsole, 1000);
 
 document.getElementById('server_start_btn').addEventListener('click', function(){
     performServerAction('1');
